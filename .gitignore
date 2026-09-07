@@ -141,3 +141,15 @@ dist
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
+
+# PHP / Composer
+/api/vendor/
+/api/var/*.sqlite
+/api/var/*.sqlite-*
+.phpunit.cache
+.phpunit.result.cache
+*.phpunit.result.cache
+composer.phar
+
+# Frontend build
+/frontend/dist/

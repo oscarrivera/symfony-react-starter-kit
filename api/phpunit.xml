@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         cacheDirectory=".phpunit.cache"
+         failOnWarning="true">
+    <testsuites>
+        <testsuite name="api">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="APP_ENV" value="test"/>
+        <env name="APP_SECRET" value="test-secret-must-be-32-chars-min"/>
+        <env name="CORS_ORIGINS" value="http://localhost:5173"/>
+        <env name="COOKIE_SECURE" value="0"/>
+        <env name="JWT_TTL" value="900"/>
+    </php>
+</phpunit>

@@ -1,0 +1,20 @@
+services:
+  api:
+    build:
+      context: ./api
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./api:/app
+    environment:
+      APP_ENV: ${APP_ENV:-dev}
+      APP_SECRET: ${APP_SECRET:-replace-this-secret-in-production-32}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
+      DATABASE_PATH: /app/var/data.sqlite
+      JWT_TTL: ${JWT_TTL:-900}
+      REFRESH_TTL: ${REFRESH_TTL:-604800}
+      COOKIE_SECURE: ${COOKIE_SECURE:-0}
+    command:
+      - bash
+      - -lc
+      - composer install --no-interaction --prefer-dist && php -S 0.0.0.0:8080 -t public
